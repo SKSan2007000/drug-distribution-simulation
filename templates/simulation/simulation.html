@@ -1,0 +1,69 @@
+{% extends 'simulation/base.html' %}
+{% load static %}
+{% block content %}
+<section class="page-head">
+    <p class="tag">Live Implementation</p>
+    <h1>Drug Distribution Simulation Dashboard</h1>
+    <p>This browser-based simulation models how drug concentration spreads across simplified body regions.</p>
+</section>
+
+<section class="sim-layout">
+    <div class="sim-card">
+        <div class="sim-header">
+            <h2>Human Body Grid Model</h2>
+            <span id="statusBadge">Running</span>
+        </div>
+        <canvas id="simCanvas" width="640" height="640"></canvas>
+        <div class="legend">
+            <span><b class="low"></b>Low</span>
+            <span><b class="medium"></b>Medium</span>
+            <span><b class="high"></b>High Concentration</span>
+        </div>
+    </div>
+
+    <div class="control-card">
+        <h2>Control Panel</h2>
+        <label>Drug Name</label>
+        <input id="drugName" value="Paracetamol">
+
+        <label>Dosage: <span id="doseValue">250</span> mg</label>
+        <input type="range" id="dosage" min="50" max="500" step="25" value="250">
+
+        <label>Diffusion Rate: <span id="diffValue">0.20</span></label>
+        <input type="range" id="diffusion" min="0.05" max="0.50" step="0.01" value="0.20">
+
+        <label>Flow Strength: <span id="flowValue">0.30</span></label>
+        <input type="range" id="flow" min="0.00" max="0.80" step="0.01" value="0.30">
+
+        <label>Elimination Rate: <span id="elimValue">0.003</span></label>
+        <input type="range" id="elimination" min="0.000" max="0.020" step="0.001" value="0.003">
+
+        <div class="button-row">
+            <button id="slowBtn">Slow</button>
+            <button id="normalBtn">Normal</button>
+            <button id="fastBtn">Fast</button>
+        </div>
+        <div class="button-row">
+            <button id="pauseBtn">Pause</button>
+            <button id="resetBtn">Reset</button>
+        </div>
+
+        <div class="metric-box">
+            <p>Simulation Time: <b id="timeStep">0</b></p>
+            <p>Total Concentration: <b id="totalValue">0</b></p>
+        </div>
+    </div>
+</section>
+
+<section class="region-section">
+    <h2>Region-wise Concentration Output</h2>
+    <div class="region-grid">
+        <div class="region-card"><h3>Brain</h3><div class="bar"><span id="brainBar"></span></div><p id="brainVal">0</p></div>
+        <div class="region-card"><h3>Blood</h3><div class="bar"><span id="bloodBar"></span></div><p id="bloodVal">0</p></div>
+        <div class="region-card"><h3>Stomach</h3><div class="bar"><span id="stomachBar"></span></div><p id="stomachVal">0</p></div>
+        <div class="region-card"><h3>Liver</h3><div class="bar"><span id="liverBar"></span></div><p id="liverVal">0</p></div>
+    </div>
+</section>
+
+<script src="{% static 'js/simulation.js' %}"></script>
+{% endblock %}

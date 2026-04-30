@@ -1,0 +1,29 @@
+{% extends 'simulation/base.html' %}
+{% block content %}
+<section class="hero">
+    <div class="hero-text">
+        <p class="tag">Transform-Based Mathematical Modeling</p>
+        <h1>{{ title }}</h1>
+        <p class="lead">A professional capstone prototype that visualizes drug absorption, distribution, and elimination using a grid-based mathematical model.</p>
+        <div class="hero-actions">
+            <a class="btn primary" href="{% url 'simulation' %}">Launch Simulation</a>
+            <a class="btn" href="{% url 'report' %}">View Project Details</a>
+        </div>
+    </div>
+    <div class="hero-card">
+        <h3>Project Focus</h3>
+        <ul>
+            <li>Drug concentration spread from stomach region</li>
+            <li>Vector calculus inspired directional flow</li>
+            <li>Time-based kinetic concentration analysis</li>
+            <li>Live dashboard for body region values</li>
+        </ul>
+    </div>
+</section>
+
+<section class="cards">
+    <div class="card"><h3>Real-World Inspired</h3><p>Demonstrates a simplified foundation of pharmacokinetic simulation used in healthcare research and education.</p></div>
+    <div class="card"><h3>Syllabus Linked</h3><p>Connects Vector Calculus, Differential Modeling, and Laplace Transform concepts from Engineering Mathematics.</p></div>
+    <div class="card"><h3>Interactive Demo</h3><p>Change dosage, diffusion speed, flow strength, and elimination rate to observe different drug behavior patterns.</p></div>
+</section>
+{% endblock %}

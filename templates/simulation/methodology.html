@@ -1,0 +1,20 @@
+{% extends 'simulation/base.html' %}
+{% block content %}
+<section class="page-head">
+    <p class="tag">Methodology</p>
+    <h1>Mathematical and Computational Approach</h1>
+</section>
+
+<section class="method-grid">
+    <div class="method-card"><span>01</span><h3>Drug Initialization</h3><p>The drug is introduced into the stomach region as an initial concentration value based on selected dosage.</p></div>
+    <div class="method-card"><span>02</span><h3>Diffusion</h3><p>Concentration spreads from each grid cell to neighboring cells, representing drug distribution through tissues.</p></div>
+    <div class="method-card"><span>03</span><h3>Directional Flow</h3><p>Flow strength gives a preferred movement direction, inspired by vector field behavior and circulation.</p></div>
+    <div class="method-card"><span>04</span><h3>Elimination</h3><p>Drug level reduces gradually to represent metabolism and removal, especially linked with liver function.</p></div>
+</section>
+
+<section class="formula-card">
+    <h2>Model Interpretation</h2>
+    <p><b>C(t+1) = Distribution by Diffusion + Directional Flow − Elimination</b></p>
+    <p>This is a simplified numerical implementation of time-based concentration change. Laplace transform concepts are used in the theoretical explanation of solving such time-dependent differential models.</p>
+</section>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'simulation/base.html' %}
+{% block content %}
+<section class="page-head">
+    <p class="tag">Capstone Report</p>
+    <h1>{{ title }}</h1>
+</section>
+
+<section class="report-box">
+    <h2>Abstract</h2>
+    <p>This project presents a real-world inspired simulation of drug distribution in the human body using transform-based mathematical modeling and computational visualization. The prototype uses a grid model where every cell stores concentration values. The drug starts from the stomach region and spreads through body regions based on diffusion, directional flow, and elimination parameters. The system provides live visualization and region-wise concentration output for brain, blood, stomach, and liver.</p>
+</section>
+
+<section class="report-box">
+    <h2>Module Details</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Module Title</th>
+                <th>Requirements</th>
+                <th>Task</th>
+                <th>Parameters</th>
+                <th>Outcome</th>
+                <th>Techniques</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in modules %}
+            <tr>
+                <td>{{ item.module }}</td>
+                <td>{{ item.requirement }}</td>
+                <td>{{ item.task }}</td>
+                <td>{{ item.parameters }}</td>
+                <td>{{ item.outcome }}</td>
+                <td>{{ item.techniques }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
+<section class="report-box">
+    <h2>Scope and Limitation</h2>
+    <p>This is a simplified educational and analytical prototype. It is not a clinical decision-making tool and cannot replace doctor judgment. Real-world medical implementation would require patient-specific data, clinical validation, safety checks, and regulatory approval.</p>
+</section>
+{% endblock %}
